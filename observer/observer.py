@@ -19,6 +19,7 @@ port = 61617
 uidToIp = {}
 observerId = 0
 
+# convert hex String List to ipv6 representation
 def ipFormat(ipList):
     converted = []
     for i in range(0,8): converted.append(ipList[2*i] + ipList[2*i+1])
@@ -35,6 +36,7 @@ def documnetEventListener(col_snapshot, changes, read_time):
 
 def updateDocument(mac, isOcupied): nodeRef.document(mac).update({"isOcupied": isOcupied})
 
+# convert packet string to hex string list
 def packetLoadToHex(original_s):
     s = str(original_s)[2:-1]
     hexList = []
@@ -57,6 +59,7 @@ def handlePacket(rowPacket):
     src_ip = pk[1].src; src_mac = pk[0].src
     dst_ip = pk[1].dst; dst_mac = pk[0].dst
 
+    # ignore other packets
     if "2001" not in dst_ip: return
 
     if hasattr(pk[3], "load"):
@@ -64,6 +67,7 @@ def handlePacket(rowPacket):
         hexList = packetLoadToHex(pk[3].load)
         
         if ("check_reception" in load) and (len(load) == 26):
+            # wi-sun module's id(address)
             unique_id = load[-5:-1]
             if(unique_id not in uidToIp):
                 registerNode(unique_id)
@@ -73,6 +77,7 @@ def handlePacket(rowPacket):
             isOcupied = (hexList[0] == '01')
             updateDocument(unique_id, isOcupied)
 
+# send data to wi-sun node
 def sendToNode(dst, msg):
     print("sendToNode")
     sendSocket.connect((dst, port))
@@ -80,12 +85,11 @@ def sendToNode(dst, msg):
     # sendSocket.close()
 
 
-# run
+# run 
+# register event listener
 col_query = nodeRef.where(filter=FieldFilter("observerId", "==", observerId))
 query_watch = col_query.on_snapshot(documnetEventListener)
 
-# while True:
+# capture wisun packets
 sniff(iface="wisun", prn = handlePacket, count = 0)
-    # quit = input("type q if you want quit this : ")
-    # break;  
 sendSocket.close()
