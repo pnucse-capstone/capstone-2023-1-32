@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "264349852018",
+    "project_id": "normalize-the-parking-lot",
+    "storage_bucket": "normalize-the-parking-lot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264349852018:android:762fb3051f3fd96adbbdeb",
+        "android_client_info": {
+          "package_name": "com.kick.npl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264349852018-48t7pv7s5rhqdiqcupncfk29etm7shh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1ekGpjj0JMJGzqc803OPO5_SxodM7W88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264349852018-48t7pv7s5rhqdiqcupncfk29etm7shh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
