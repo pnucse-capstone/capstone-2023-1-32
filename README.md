@@ -1,64 +1,70 @@
 # **WI-SUN FAN 네트워크를 활용한 스마트 공유 주차장**
 
-# 1. 프로젝트 소개
+## 1. 프로젝트 소개
 자동차는 대부분의 시간을 주차장에서 보내고, 운전자는 주행 시간의 30% 이상을 주차 공간을 찾는데 쓴다는 연구 결과가 있습니다. 하지만, 기존의 여러 공유 주차장 서비스들이 있었음에도 불구하고, '부정 주차 문제'로 인한 한계점이 명확했습니다. 
 
 저희는 '부정 주차 문제'를 해결하고자 차단기가 부착된 공유 주차장 모듈을 제작하였습니다. 이를 활용해 IoT 기반의 공유 주차장 솔루션을 제시하고 주차 비효율 문제를 해결하는데 도움을 주고자 합니다.
 
-# 2. 팀 소개
+## 2. 팀 소개
 - 지도 교수님: 정상화 교수님
 - 지도 조교님: 이희준 조교님
 
 |이름|정우영|이창주|홍유준|
 |-|-|-|-|
+|github| [<img width="150" src= "https://avatars.githubusercontent.com/u/49744558?v=4"/>](https://github.com/wyj3569) | [<img width="150" src= "https://avatars.githubusercontent.com/u/49744572?v=4"/>](https://github.com/busbtvi) | [<img width="150" src= "https://avatars.githubusercontent.com/u/46425142?v=4"/>](https://github.com/Kick-snare) |
 |학번|201824580|201824565|201824615|
 |email|wyjung0731@gmail.com|busbtvi@gmail.com| hyjhyj0901@naver.com |
-|github| [wyj3569](https://github.com/wyj3569) | [busbtvi](https://github.com/busbtvi) | [Kick-snare](https://github.com/Kick-snare) |
 |역할|Wi-SUN 모듈 개발|서버 & 케이싱|안드로이드 앱 개발|
 
-
-# 3. 구성도
+## 3. 구성도
 - 전체적인 서비스의 구조도
 
-![서비스 전체 구조도](./docs/files/structure.jpg)
+| 서비스 전체 구조도 | ![서비스 전체 구조도](./docs/files/structure.jpg) |
+| --- | :--- |
+| **어플리케이션 서버** | 어플리에이션이 활용항 데이터를 저장, Firebase의 FireStore를 활용 | 
+| **AP(AccessPoint)** | 각 wi-sun 네트워크가 인터넷에 접속하기 위한 gateway |
+| **WI-SUN Root Module** | AP에 연결되어 wi-sun fan 네트워크와 인터넷을 연결하는 역활 | 
+| **주차장 모듈** | 차단기와 wi-sun 모듈을 포함하여, 주차장 바닥에 간단히 설치할 수 있는 모듈 |
 
-    - 어플리케이션 서버: 어플리에이션이 활용항 데이터를 저장, Firebase의 FireStore를 활용
-    - AP(AccessPoint): 각 wi-sun 네트워크가 인터넷에 접속하기 위한 gateway
-    - WI-SUN Root Module: AP에 연결되어 wi-sun fan 네트워크와 인터넷을 연결하는 역활
-    - 주차장 모듈: 차단기와 wi-sun 모듈을 포함하여, 주차장 바닥에 간단히 설치할 수 있는 모듈
 
-# 4. 소개 및 시연 영상
 
-[시연 영상](https://youtube.com/)
 
-# 5. 사용법
+## 4. 소개 및 시연 영상
+
+
+[<img width="786" alt="스크린샷 2023-10-27 오후 11 20 59" src="https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/d3f03df4-c666-478d-8ad8-54723ae4332b">](https://youtube.com/)
+
+## 5. 사용법
 > 이 프로젝트에 사용된 Wi-SUN 모듈의 경우, 기술적 권리로 인해 배포 및 공개가 금지되어 있습니다. 따라서, 해당 모듈과 관련된 source code 및 사용법은 이 repository 및 README에 포함하지 않았습니다.
 
-## 5.1 주차장 모듈
+### 5.1 주차장 모듈
 > 주차장 모듈은 주차공간 소유자가 자신의 주차장에 간편하게 설치하여, 부정주차 차량을 차단할 수 있는것을 목표로 개발되었습니다.
 
-- 완성된 모듈
-![모듈 구조도](./docs/files/module_real_1.png)
-![모듈 구조도](./docs/files/module_real_2.png)
+#### 완성된 모듈
 
-위의 주차장 모듈은 주차면에 차량이 주차되어 있는지 여부를 실시간으로 파악합니다.
+| ![모듈 구조도](./docs/files/module_real_1.png) | ![모듈 구조도](./docs/files/module_real_2.png) |
+| --- | --- |
 
-주차장 모듈에 부정 주차를 방지할 수 있는 차단바 기능을 구현했습니다. 
-
-차단바의 움직임은 사용자가 애플리케이션을 통해서 조작합니다. 
-
-우리 공유 주차장 시스템은 Wi-SUN FAN 네트워크를 이용하여 통신합니다. 
+- 위의 주차장 모듈은 주차면에 차량이 주차되어 있는지 여부를 실시간으로 파악합니다.
+- 주차장 모듈에 부정 주차를 방지할 수 있는 차단바 기능을 구현했습니다.
+- 차단바의 움직임은 사용자가 애플리케이션을 통해서 조작합니다.
+- 우리 공유 주차장 시스템은 Wi-SUN FAN 네트워크를 이용하여 통신합니다. 
 
 Wi-SUN FAN 네트워크를 이용한 통신을 간략히 요약하면 다음과 같습니다.
+
 - Wi-SUN FAN 네트워크의 모든 패킷은 루트 노드를 경유한다.
 - 루트 노드를 관찰하는 옵저버를 둔다.
 - 옵저버는 Wi-SUN 모듈과 서버 사이의 패킷을 중간에서 연결하는 역할을 수행한다.
 
 
-## 5.2 Observer
+### 5.2 Observer
 > observer는 AP에서 실행되어, firebase와 wi-sun 모듈간의 양방향 통신을 책임지는 python 코드입니다.
 
-### how to run
+<details>
+<summary>How to run</summary>
+    
+#### How to run
+
 1. python 3.* version
 2. firebase 프로젝트에서 firebaseCredential.json을 다운받아 observer.py와 동일한 경로에 배치한다. 
     - 프로젝트 설정 -> 서비스 계정 -> 새 비공개키 생성
@@ -73,7 +79,13 @@ Wi-SUN FAN 네트워크를 이용한 통신을 간략히 요약하면 다음과 
     ```
 4. run observer.py
 
-### 코드 설명
+</details>
+
+
+<details>
+<summary>코드 설명</summary>
+
+#### 코드 설명
 - 서버를 firebase로 사용하고 있기 때문에, firebase 까지 업데이트를 하면 어플리케이션에서 자동으로 반영
 
 1. 모듈 -> 어플리케이션
@@ -115,8 +127,10 @@ Wi-SUN FAN 네트워크를 이용한 통신을 간략히 요약하면 다음과 
         sendSocket.connect((dst, port))
         sendSocket.send(msg.to_bytes(1, 'big'))
         ```
+</details>
 
-## 5.3 Android
+
+### 5.3 Android
 
 
 ## 5.4 Casing(H/W)
