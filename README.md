@@ -9,23 +9,26 @@
 - 지도 교수님: 정상화 교수님
 - 지도 조교님: 이희준 조교님
 
-|||||
-|-|-|-|-|
 |이름|정우영|이창주|홍유준|
+|-|-|-|-|
 |학번|201824580|201824565|201824615|
-|github|wyjung0731@gmail.com|busbtvi@gmail.com|???|
-|역할|Wi-SUN 모듈 개발|서버 & 케이싱|안드로이드 개발|
+|email|wyjung0731@gmail.com|busbtvi@gmail.com| hyjhyj0901@naver.com |
+|github| [wyj3569](https://github.com/wyj3569) | [busbtvi](https://github.com/busbtvi) | [Kick-snare](https://github.com/Kick-snare) |
+|역할|Wi-SUN 모듈 개발|서버 & 케이싱|안드로이드 앱 개발|
 
 
 # 3. 구성도
 - 전체적인 서비스의 구조도
+
 ![서비스 전체 구조도](./docs/files/structure.jpg)
+
     - 어플리케이션 서버: 어플리에이션이 활용항 데이터를 저장, Firebase의 FireStore를 활용
     - AP(AccessPoint): 각 wi-sun 네트워크가 인터넷에 접속하기 위한 gateway
     - WI-SUN Root Module: AP에 연결되어 wi-sun fan 네트워크와 인터넷을 연결하는 역활
     - 주차장 모듈: 차단기와 wi-sun 모듈을 포함하여, 주차장 바닥에 간단히 설치할 수 있는 모듈
 
 # 4. 소개 및 시연 영상
+
 [시연 영상](https://youtube.com/)
 
 # 5. 사용법
