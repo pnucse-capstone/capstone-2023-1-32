@@ -60,7 +60,7 @@ Wi-SUN FAN 네트워크를 이용한 통신을 간략히 요약하면 다음과 
 > observer는 AP에서 실행되어, firebase와 wi-sun 모듈간의 양방향 통신을 책임지는 python 코드입니다.
 
 <details>
-<summary>How to run</summary>
+<summary>**How to run**</summary>
     
 #### How to run
 
@@ -82,7 +82,7 @@ Wi-SUN FAN 네트워크를 이용한 통신을 간략히 요약하면 다음과 
 
 
 <details>
-<summary>코드 설명</summary>
+<summary>**코드 설명**</summary>
 
 #### 코드 설명
 - 서버를 firebase로 사용하고 있기 때문에, firebase 까지 업데이트를 하면 어플리케이션에서 자동으로 반영
@@ -164,10 +164,13 @@ Wi-SUN FAN 네트워크를 이용한 통신을 간략히 요약하면 다음과 
 
 사용자는 자신이 주차를 원하는 시작 시간과 종료 시간을 설정하여 이 조건에 맞게 사용할 수 있는 주차장을 탐색하고, 해당하는 가격을 결제하여 사용할 수 있다. 편리한 사용을 위해 아래 “+” 또는 “-”가 붙은 버튼을 클릭하여 간편하게 시간을 조정할 수 있다. 하단 아래의 큰 버튼을 눌러 적용한다.
 
+#### 주차장 모듈 등록
 
-| 주차장 사용 시간 | 날짜 선택 | 시간 선택 | ㅇㅇ |
+| 주차장 관리 | 권한 획득 | QR코드 스캔 | 주차장 정보 입력 |
 | --- | --- | --- | --- |
-| ![image](https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/eb0a89c2-c23a-45c8-8b12-a42085f92ee5) | ![image](https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/15f4bcef-2a7f-4bb1-a741-5bbcfdef1cbf) | ![image](https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/fc087353-17ec-4be0-8ce2-2f91bc96561e) | <img width="2800" src="https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/ff7533bb-3af3-49f1-9633-f1a33fa7c61b"> |
+| ![image](https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/eb0a89c2-c23a-45c8-8b12-a42085f92ee5) | ![image](https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/15f4bcef-2a7f-4bb1-a741-5bbcfdef1cbf) | ![image](https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/33e6c658-4cb5-4a25-b35b-e445d7f0d111) | <img width="2800" src="https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/ff7533bb-3af3-49f1-9633-f1a33fa7c61b"> |
+
+
 
 주차장을 제공자로서 사용하기 위해서는 모듈을 동작시켜 네트워크상에 연결되고 나서, 주차장에 대한 세부 정보와 제공자가 누구인지 등 등록하는 과정이 필요하다. 추후 모듈을 제공할 때 케이스에 QR스티커 등을 부착하여 모바일 애플리케이션에서 카메라로 인식하여 간단하게 구현할 수 있도록한다. 
  인식이 된 모듈은 주차장의 이름, 위치, 가격등을 설정하여 서버에 저장되고, 최종적으로 사용자에게 노출되게 된다. 
