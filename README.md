@@ -8,9 +8,9 @@
 # 2. 팀 소개
 - 지도 교수님: 정상화 교수님
 
-|||||
 |-|-|-|-|
 |이름|정우영|이창주|홍유준|
+|학번||201824565||
 |github|???|busbtvi@gmail.com|???|
 |역할|wi-sun 모듈 개발|서버 & 케이싱|안드로이드 개발|
 
@@ -86,6 +86,49 @@ Wi-SUN FAN 네트워크를 이용한 통신을 간략히 요약하면 다음과 
     sniff(iface="????", prn = handlePacket, count = 0)
     ```
 4. run observer.py
+
+### 코드 설명
+- 서버를 firebase로 사용하고 있기 때문에, firebase 까지 업데이트를 하면 어플리케이션에서 자동으로 반영
+
+1. 모듈 -> 어플리케이션
+    1. 주차장 모듈에 설치된 wi-sun 모듈이 root 로 데이터를 전송
+    2. root 모듈은 AP에 있는 visualizer에게 전달
+    3. 2번의 과정을 python의 scapy를 활용해 캡처
+        ```python
+        from scapy.all import *
+        sniff(iface="wisun", prn = handlePacket, count = 0)
+        ```
+    4. 패킷을 분석해 필요한 데이터 추출
+        ```python
+        def handlePacket(rowPacket)
+        ```
+    5. firestore에 업데이트
+        ```python
+        def updateDocument(mac, isOcupied): nodeRef.document(mac).update({"isOcupied": isOcupied})
+        ```
+2. 어플리케이션 -> 모듈
+    1. observer에서 firestore에 대한 EventListener 등록
+        ```python
+        # 변화를 감지할 collection(일종의 table)
+        nodeRef = firestore.client().collection("module")
+        
+        # 현재 observer와 관련된 문서만 탐지
+        col_query = nodeRef.where(filter=FieldFilter("observerId", "==", observerId))
+        query_watch = col_query.on_snapshot(documnetEventListener)
+        ```
+    2. 문서의 flag 필드값을 확인
+        ```python
+        for change in changes:
+            if change.type.name == "MODIFIED":
+                msg = 0 if change.document.get("isBlocked") else 1
+        ```
+    3. 데이터(제어신호)를 socket을 활용해, interface로 전달
+        ```python
+        def sendToNode(dst, msg):
+        print("sendToNode")
+        sendSocket.connect((dst, port))
+        sendSocket.send(msg.to_bytes(1, 'big'))
+        ```
 
 ## 5.3 Android
 
