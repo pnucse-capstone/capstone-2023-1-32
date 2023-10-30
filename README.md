@@ -29,8 +29,10 @@
 
 ## 4. 소개 및 시연 영상
 
-| [<img width="500" src="https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/d3f03df4-c666-478d-8ad8-54723ae4332b"/>](https://www.youtube.com/watch?v=-8N5LV3WuaA) |
-| --- |
+<!--| [<img width="500" src="https://github.com/pnucse-capstone/capstone-2023-1-32/assets/46425142/d3f03df4-c666-478d-8ad8-54723ae4332b"/>](https://youtu.be/7jfjwZkByfk?si=sUhvpEVTzl3uZno2) |
+| --- |-->
+
+[![정상주차장 팀 발표영상](http://img.youtube.com/vi/7jfjwZkByfk/mqdefault.jpg)](https://youtu.be/7jfjwZkByfk?si=sUhvpEVTzl3uZno2)
 
 ## 5. 사용법
 > 이 프로젝트에 사용된 Wi-SUN 모듈의 경우, 기술적 권리로 인해 배포 및 공개가 금지되어 있습니다.
